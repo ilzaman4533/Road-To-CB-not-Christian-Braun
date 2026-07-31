@@ -3,8 +3,8 @@ This is my first attempt(of many hopefully) of trying to understand the Big Pict
 Internet: a gigantic map of roads
 Data: Cars
 Router: intersecting roads where they guide the Data(cars) to different pathways via IP addresses
-IP addresses: different villages/apartment complexes
-MAC address: house address/room numbers in apartments
+IP addresses: different villages/apartment complexes(private ip: neighborhood  public ip: the city)
+MAC address: house address/room numbers in apartments(multiple separate MAC addresses within one computer: different furnitures(ex. WiFi, Ethernet, Bluetooth)
 Machine: the home MAC was addressed to
 
 Before data is sent out to the world, it needs to be packaged with info
