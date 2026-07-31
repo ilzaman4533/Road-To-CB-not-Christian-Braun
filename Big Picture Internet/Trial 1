@@ -43,7 +43,7 @@ Post-dump corrections, learning(thru Gemini)
 - ICMP: Diagnostic, Control
   Ping, Traceroute, error reporting
 - A type of protocol for communication is set, chosen by the software program on the device when it asks OS to send info
-  When a developer writes a program, they create a Socket(an endpoint for sending/receiving data) and declare what kind of traffic it will be 
+  When a developer writes a program, they create a Socket(an endpoint for sending/receiving data. Active connection between two machines: source ip, source port, destination ip, destination port) and declare what kind of traffic it will be 
   Web Browsers (Chrome, Firefox): Need 100 percent accuracy (you can't have missing code on a webpage), so they program their sockets to use TCP (Port 80 or 443).
   Online Multiplayer Games / Video Calls (Discord, Zoom): Prioritize live speed over absolute accuracy (a dropped frame is better than freezing the whole stream), so they program their sockets to use UDP.
   Network Diagnostic Tools (ping): Need low-level network status, so the command tells the OS kernel to build an ICMP packet directly.
