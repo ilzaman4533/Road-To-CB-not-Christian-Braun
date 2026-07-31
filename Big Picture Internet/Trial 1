@@ -3,8 +3,8 @@ This is my first attempt(of many hopefully) of trying to understand the Big Pict
 Internet: a gigantic map of roads
 Data: Cars
 Router: intersecting roads where they guide the Data(cars) to different pathways via IP addresses
-IP addresses: different villages/apartment complexes(private ip: neighborhood  public ip: the city)
-MAC address: house address/room numbers in apartments(multiple separate MAC addresses within one computer: different furnitures(ex. WiFi, Ethernet, Bluetooth)
+IP addresses: different villages/apartment complexes
+MAC address: house address/room numbers in apartment
 Machine: the home MAC was addressed to
 
 Before data is sent out to the world, it needs to be packaged with info
@@ -56,5 +56,7 @@ Post-dump corrections, learning(thru Gemini)
   Cellular Data: Long-range radio signals managed by telecom providers (AT&T, Verizon, T-Mobile). Instead of connecting to a wifi router close, your phone transmits radio waves to a massive cell tower miles away. That cell tower is connected to high-speed fiber cables underground, routing your data directly into the carrier’s core network and out to the internet.
   Mobile Hotspot: Turns a mobile phone into a mini wifi router. Your laptop connects to your phone via Wi-Fi radio waves. Your phone takes that data, translates it, and sends it out to the nearest cell tower using its cellular radio antenna. The phone works as a bridge between the laptop and the cellular tower -> internet
 - Fast Internet: A combination of high bandwidth (carrying lots of data at once) and low latency (delivering packets with almost zero delay).
+- multiple separate MAC addresses within one computer: different doors/mailboxes(ex. WiFi, Ethernet, Bluetooth)
+- Two types of ip addresses(sort of nested): private ip: neighborhood  public ip: the city
 
 The end.
