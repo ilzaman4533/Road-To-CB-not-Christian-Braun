@@ -1,0 +1,60 @@
+This is my first attempt(of many hopefully) of trying to understand the Big Picture by dumping everything I know just off of my brain in a somewhat organized manner. These could be right or wrong
+
+Internet: a gigantic map of roads
+Data: Cars
+Router: intersecting roads where they guide the Data(cars) to different pathways via IP addresses
+IP addresses: different villages/apartment complexes
+MAC address: house address/room numbers in apartments
+Machine: the home MAC was addressed to
+
+Before data is sent out to the world, it needs to be packaged with info
+the source&destination IP addresses are packaged within the data (encapsulation process)
+different layers add different things(data security factor, suitability, mac address(looked up from ARP if outside local IP), Destination IP(looked up thru a DNS request if a domain is the destination))
+
+Data is then sent out
+TTL(Time To Live): amount of 'hops' the data takes in its road to destination(through various routers). TTL decreases by one every time it reaches one Router or step. This way it is easier to track data movement
+and control it
+once data reaches another machine, de-capsulation starts in reverse order and data is eventually processed by the hardware into the software and shown thru the OS(linux, windows), and maybe the broswer if 
+web request(chrome, Firefox, Edge, etc)
+
+ICMP protocol: 'ping'. works at a IP level to figure out a certain server is active and responding
+TCP protocol: works at port level. sends SYN packet to an IP address to figure out if it responds with a SYN/ACK packet, then ultimately sends the ACK packet back to complete the connection(3 way handshake). 
+establishes the connection to send data. also used in port scanning
+SYN protocol: half way version of TCP. Can't really remember but in port scanning if the destination IP responds with RST port is deemed closed, if not its open/filtered?
+UDP protocol: very fast(think like full blazing gun bullets) but less precise or accurate, especially in port scanning its similar to SYN in that its either closed or open/filtered. not clear
+
+Things i forgot:
+what are these protocols for?
+What is a server again?
+How does WIFI play a role in this?
+probably a lot more.
+
+Post-dump corrections, learning(thru Gemini)
+- TTL is used to prevent loop.: If two routers accidentally get misconfigured into a loop, packets would circle each other forever, crashing the network. TTL forces packets to self-destruct (expire) when the counter hits 0.
+- SYN is not a protocol: it is a flag inside the TCP packet header. in a SYN Scan, a TCP packet with a SYN flag set is sent. if the port is open response is SYN/ACK and instead of sending back ACK, the attacker sends RST(reset) to prevent getting logged(still leaves a footprint in network packet captures however)
+  if closed, the target responds with RST
+- Protocols are agreed-upon communication rules: they ensure that a Linux server, an iPhone, and a Windows PC all agree on how to break up, address, encrypt, and reassemble data.
+- TCP: connection-oriented
+  slower, high reliability
+  used for Web(Http/Https) or File Transfer(SSH, FTP)
+- UDP: Connectionless
+  Quick low reliability(no tracking)
+  Video Streaming, Gaming, DNS Queries
+- ICMP: Diagnostic, Control
+  Ping, Traceroute, error reporting
+- A type of protocol for communication is set, chosen by the software program on the device when it asks OS to send info
+  When a developer writes a program, they create a Socket(an endpoint for sending/receiving data) and declare what kind of traffic it will be 
+  Web Browsers (Chrome, Firefox): Need 100 percent accuracy (you can't have missing code on a webpage), so they program their sockets to use TCP (Port 80 or 443).
+  Online Multiplayer Games / Video Calls (Discord, Zoom): Prioritize live speed over absolute accuracy (a dropped frame is better than freezing the whole stream), so they program their sockets to use UDP.
+  Network Diagnostic Tools (ping): Need low-level network status, so the command tells the OS kernel to build an ICMP packet directly.
+  Data is created -> Protocol Formatting(ex. OS first executes the three way handshake(TCP) to open a clear connection with the server -> once connected OS takes the data and wraps it inside a TCP header(Source, desstination ports)
+  -> among that packaging with other sorts from different layers(IP, MAC, Data suitability), then the Network Interface Card(NIC) in hardware convert the whole package into electrical signals/light pulses and push it onto the physical cable --> routers . .
+- Firewalls and tools like Wireshark or Snort are able to inspect these incoming packets in real time because these info are baked right in the packets throughout the encapsulation process, allowing them to find suspicious behaviors through inspection or rules before they reach processing of the servers
+- Server: A server is simply a specialized computer that runs $24/7$, connected to the internet, waiting to serve resources, data, or services to other computers (called clients).
+- Wifi, cellular data, and hotspots replace the physical ethernet cable(a wired network cord used to connect devices like computers, routers for fast and stable data transfer) with invisible radio waves(layer 1)
+  Wifi: High-frequency radio signals operating over short distances (usually within a home, building, or coffee shop). Our machine's internal antenna converts digital pulses(1/0) into radio frequencies. The Wi-Fi router catches those radio waves, converts them back into electrical signals, and pushes them down a physical wire into the broader internet.
+  Cellular Data: Long-range radio signals managed by telecom providers (AT&T, Verizon, T-Mobile). Instead of connecting to a wifi router close, your phone transmits radio waves to a massive cell tower miles away. That cell tower is connected to high-speed fiber cables underground, routing your data directly into the carrier’s core network and out to the internet.
+  Mobile Hotspot: Turns a mobile phone into a mini wifi router. Your laptop connects to your phone via Wi-Fi radio waves. Your phone takes that data, translates it, and sends it out to the nearest cell tower using its cellular radio antenna. The phone works as a bridge between the laptop and the cellular tower -> internet
+- Fast Internet: A combination of high bandwidth (carrying lots of data at once) and low latency (delivering packets with almost zero delay).
+
+The end.
