@@ -1,4 +1,4 @@
-# Road-To-CD-not-Chris-Dudley
+# Sudo-not-Sumo
 Documenting my path to become the best Cyber Detective I can be.
 Folders:
 - CTFs: CTF(Capture The Flag) Writeups. Further separated onto Red-Team and Blue-Team CTFs. Updated Weekly.
