@@ -8,4 +8,5 @@ Folders:
 My name is Yunjae Park, and I am a class of 2030 at the University of Texas at Austin, Majoring in Computer Science. 
 This all started with just a few weeks left before my freshman year, when I suddenly grew very curious in the field of cyber security, specifically in DFIR and Forensics.
 As of writing this, about a month in, very close to move-in -- The spark has already turned into a passion.
+The passion to become the best Cyber Detective who can also adapt to AI security problems.
 I will continue to record my progress here.
